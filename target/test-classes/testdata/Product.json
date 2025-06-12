@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Smart Bamboo Toothbrush",
+    "description": "An eco-friendly toothbrush designed with bamboo and smart ergonomic grip for daily dental care.",
+    "price": 12.49,
+    "image": "https:\\image.002",
+    "category": "Electronics"
+  },
+  {
+    "title": "Eco-Friendly Lunch Box",
+    "description": "A reusable lunch box made from sustainable materials, perfect for carrying meals on the go.",
+    "price": 25.99,
+    "image": "https:\\image.003",
+    "category": "Electronics"
+  },
+  {
+    "title": "Wireless Ceramic Kettle",
+    "description": "A stylish ceramic kettle with wireless heating technology for quick and safe boiling.",
+    "price": 67.75,
+    "image": "https:\\image.004",
+    "category": "Appliances"
+  },
+  {
+    "title": "Organic Trail Mix Pack",
+    "description": "A healthy mix of dried fruits, nuts, and seeds, ideal for snacking or hiking.",
+    "price": 15.30,
+    "image": "https:\\image.005",
+    "category": "Groceries"
+  },
+  {
+    "title": "Minimalist Desk Organizer",
+    "description": "A sleek and modern organizer to keep your desk tidy and your essentials within reach.",
+    "price": 34.90,
+    "image": "https:\\image.006",
+    "category": "Office Supplies"
+  }
+]
