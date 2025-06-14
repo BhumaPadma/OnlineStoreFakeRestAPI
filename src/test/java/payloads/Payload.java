@@ -5,6 +5,7 @@ import java.util.Random;
 import com.github.javafaker.Faker;
 
 import pojo.Address;
+import pojo.Cart;
 import pojo.Geolocation;
 import pojo.Name;
 import pojo.Product;
@@ -50,13 +51,27 @@ public class Payload {
 
 		Address address = new Address(city, Street, number, ZipCode, geolocation);
 
-		String phone = faker.phoneNumber().phoneNumber();
+		String phone = faker.phoneNumber().cellPhone();
 
 		return new Users(email, username, password, name, address, phone);
 
 	}
 
 	// cart
+	/**
+	 * {
+    id:Number,
+    userId:Number,
+    date:Date,
+    products:[{productId:Number,quantity:Number}]
+}
+	 */
+	
+	public static Cart cartPayload() {
+		
+		return new Cart(0, null, null);
+		
+	}
 
 	// login
 

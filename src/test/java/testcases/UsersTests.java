@@ -17,7 +17,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class UsersTests extends BaseClass {
 
 	// Get all users
-	//@Test(priority = 1)
+	@Test(priority = 1)
 	public void testGetAllUsers() {
 		given()
 
@@ -26,11 +26,11 @@ public class UsersTests extends BaseClass {
 		.then()
 			.statusCode(200)
 			.body("size()", greaterThan(0))
-			.log().body();
+			;
 	}
 	
 	//Get user by id
-	//@Test(priority = 2)
+	@Test(priority = 2)
 	public void testGetUserById() {
 		
 		int userId = configReader.getIntProperty("userId");
@@ -41,11 +41,11 @@ public class UsersTests extends BaseClass {
 		.then()
 			.statusCode(200)
 			.body("id", equalTo(1))
-			.log().body();
+			;
 	}
 	
 	//Get users with limit
-	//@Test(priority = 3)
+	@Test(priority = 3)
 	public void testGetUsersWithLimit() {
 			
 		int limit = configReader.getIntProperty("limit");
@@ -56,11 +56,11 @@ public class UsersTests extends BaseClass {
 		.then()
 			.statusCode(200)
 			.body("size()", equalTo(5))
-			.log().body();
+			;
 		}
 	
 	//verify all the users are sorted in descending order
-	//@Test(priority = 4)
+	@Test(priority = 4)
 	public void testGetUsersWithDescOrder() {
 			
 		Response response = given()
@@ -77,7 +77,7 @@ public class UsersTests extends BaseClass {
 		}
 	
 	//verify all the users are sorted in ascending order
-	//@Test(priority = 5)
+	@Test(priority = 5)
 	public void testGetUsersWithAsccOrder() {
 			
 		Response response = given()
@@ -86,15 +86,15 @@ public class UsersTests extends BaseClass {
 			.get(Routes.GET_ALL_USERS_SORTED)
 		.then()
 			.statusCode(200)
-			.log().body()
 			.extract().response();
 		
 		List<Integer> userids = response.jsonPath().getList("id" , Integer.class);
 		assertThat(isOrderAscending(userids), is(true));
 		}
 	
+	//Create users
 	@Test(priority = 6)
-	public void testCreateUsers() {
+	public void testCreateUser() {
 		
 		Users newUserdata = Payload.usersPayload();
 		
@@ -105,9 +105,43 @@ public class UsersTests extends BaseClass {
 			.post(Routes.CREATE_USERS)
 		.then()
 			.statusCode(200)
-//			.body("username", equalTo(newUserdata.getName()))
-			.log().body();
+			.log().body()
+			;
 	}
 	
+	//update users
+	@Test(priority = 7)
+	public void testUpdateUser() {
+		
+		int userId = configReader.getIntProperty("userId");
+		Users updatedUserdata = Payload.usersPayload();
+		
+		given()
+			.contentType(ContentType.JSON)
+			.pathParam("id", userId)
+			.body(updatedUserdata)
+		.when()
+			.put(Routes.UPDATE_USER)
+		.then()
+			.statusCode(200)
+			.log().body()
+			.body("username", equalTo(updatedUserdata.getUsername()));
+	}
+	
+	//Delete user
+	@Test(priority = 8)
+	public void testDeleteUser() {
+
+		int userId = configReader.getIntProperty("userId");
+		
+		given()
+			.pathParam("id", userId)
+		.when()
+			.delete(Routes.DELETE_USER)
+		.then()
+			.statusCode(200)
+			;
+		
+		}
 
 }

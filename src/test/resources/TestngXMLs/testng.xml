@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
-<suite name="API Test Suite">
+<suite  parallel="true" thread-count="2"  name="API Test Suite">
 	<listeners>
 		<listener class-name="utils.ExtentReporter"></listener> 
 		
 	</listeners>
-	<test thread-count="2" name="API Tests">
+	<test name="Product Tests">
 		<classes>
 			<class name="testcases.ProductTests" />
+		</classes>
+	</test>
+	<test  name="Users Tests">
+		<classes>
+			<class name="testcases.UsersTests" />
 		</classes>
 	</test>
 </suite>
