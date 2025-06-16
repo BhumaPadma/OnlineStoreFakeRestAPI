@@ -8,10 +8,6 @@ public class Product {
 	private String image;
 	private String category;
 
-	//for getting cart product details
-	private int productId;
-	private int quantity;
-
 	// constructor
 	public Product(String title, String description, double price, String image, String category) {
 		this.category = category;
@@ -19,12 +15,6 @@ public class Product {
 		this.price = price;
 		this.image = image;
 		this.description = description;
-	}
-
-	// another constructor
-	public Product(int productId, int quantity) {
-		this.productId = productId;
-		this.quantity = quantity;
 	}
 
 	// Getters and setters
@@ -66,22 +56,6 @@ public class Product {
 
 	public void setCategory(String category) {
 		this.category = category;
-	}
-
-	public int getProductId() {
-		return productId;
-	}
-
-	public void setProductId(int productId) {
-		this.productId = productId;
-	}
-
-	public int getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
 	}
 
 }

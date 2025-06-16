@@ -1,16 +1,16 @@
 package pojo;
 
-import java.util.Date;
+
 import java.util.List;
 
 public class Cart {
 
 	private int userId;
-	private Date date;
-	private List<Product> products;
+	private String date;
+	private List<CartProduct> products;
 
 	// Constructor
-	public Cart(int userId, Date date, List<Product> products) {
+	public Cart(int userId, String date, List<CartProduct> products) {
 		this.userId = userId;
 		this.date = date;
 		this.products = products;
@@ -25,19 +25,19 @@ public class Cart {
 		this.userId = userId;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
-	public List<Product> getProducts() {
+	public List<CartProduct> getProducts() {
 		return products;
 	}
 
-	public void setProducts(List<Product> products) {
+	public void setProducts(List<CartProduct> products) {
 		this.products = products;
 	}
 

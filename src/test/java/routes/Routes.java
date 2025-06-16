@@ -16,12 +16,12 @@ public class Routes {
 	public static final String DELETE_PRODUCT = "/products/{id}";
 	
 	//cart
-	public static final String GET_ALL_CART_ITEMS = "/carts:";
+	public static final String GET_ALL_CART_ITEMS = "/carts";
 	public static final String GET_CART_ITEMS_BY_ID = "/carts/{id}";
 	public static final String GET_CART_ITEMS_WITH_LIMIT = "/carts?limit={limit}";
 	public static final String GET_CART_ITEMS_SORTED = "/carts?sort={order}";
-	public static final String GET_ALL_CART_ITEMS_BY_DATE = "/carts?startDate={startdate}&endDate={enddate}";
-	public static final String GET_CART_ITEMS_BY_USERID = "/carts/user/{userId}:";
+	public static final String GET_ALL_CART_ITEMS_BY_RANGE = "/carts?startDate={startdate}&endDate={enddate}";
+	public static final String GET_CART_ITEMS_BY_USERID = "/carts/user/{userId}";
 	public static final String CREATE_CART = "/carts";
 	public static final String UPDATE_CART = "/carts/{id}";
 	public static final String DELETE_CART = "/carts/{id}";

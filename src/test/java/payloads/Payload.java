@@ -1,12 +1,19 @@
 package payloads;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 import com.github.javafaker.Faker;
 
 import pojo.Address;
 import pojo.Cart;
+import pojo.CartProduct;
 import pojo.Geolocation;
+import pojo.Login;
 import pojo.Name;
 import pojo.Product;
 import pojo.Users;
@@ -59,20 +66,34 @@ public class Payload {
 
 	// cart
 	/**
-	 * {
-    id:Number,
-    userId:Number,
-    date:Date,
-    products:[{productId:Number,quantity:Number}]
-}
+	 * { id:Number, userId:Number, date:Date,
+	 * products:[{productId:Number,quantity:Number}] }
 	 */
-	
-	public static Cart cartPayload() {
+
+	public static Cart cartPayload(int userId) {
+
+		List<CartProduct> products = new ArrayList<>();
+
+		int productId = random.nextInt(100);
+		int quantity = random.nextInt(10) + 1;
+		products.add(new CartProduct(productId, quantity));
+
+		SimpleDateFormat newdate = new SimpleDateFormat("yyyy-mm-dd" , Locale.ENGLISH);
+		String date = newdate.format(new Date());
 		
-		return new Cart(0, null, null);
-		
+		return new Cart(userId, date, products);
+
 	}
 
 	// login
+	
+	public static Login loginPayload() {
+		
+		String username = faker.name().username();
+		String password = faker.internet().password();
+		
+		return new Login(username, password);
+		
+	}
 
 }
